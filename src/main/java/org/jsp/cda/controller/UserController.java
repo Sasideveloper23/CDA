@@ -37,7 +37,6 @@ public class UserController {
 		
 		return service.saveUser(user);
 	}
-	
 	@Operation(summary = "THis API will find based on Id",description = "THis API will find based on Id from the table User")
 	@ApiResponses(value = {@ApiResponse(responseCode = "200",description = "User Found Successfully"),@ApiResponse(responseCode = "400",description = "No User Found")})
 	
@@ -54,5 +53,13 @@ public class UserController {
 	public ResponseEntity<?> verifyOtp(@PathVariable int id,@PathVariable int otp){
 		return service.verifyOtp(id,otp);
 	}
+	
+	@GetMapping("/email/{email}")
+	public ResponseEntity<?> findUserByEmail(String email){
+		return service.findUserByEmail(email);
+	}
+	
+	
+	
 	
 }
